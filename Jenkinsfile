@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Package') {
             steps {
-                sh "/opt/homebrew/bin/minikube build -f Dockerfile -t app-demo:latest ."
+                sh "/opt/homebrew/bin/minikube image build -f Dockerfile -t app-demo:latest ."
             }
         }
         stage('DeployToK8S') {
