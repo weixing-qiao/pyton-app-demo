@@ -14,12 +14,12 @@ pipeline {
         }
         stage('Package') {
             steps {
-                docker build -f Dockerfile -t app-demo:latest .
+                minikube build -f Dockerfile -t app-demo:latest .
             }
         }
-        stage('Deploy') {
+        stage('DeployToK8S') {
             steps {
-                echo 'Deploying....'
+                helm upgrade --install app-demo ./app-demo-chart
             }
         }
     }
