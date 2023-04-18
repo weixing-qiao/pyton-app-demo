@@ -1,9 +1,9 @@
 from flask import Flask
-import json
+app = Flask(__name__)
 
-@app.route('/hello')
-def hello_world():
-    app.logger.info(json.dumps({'message': 'Hello, World!'}))
-    return jsonify({'message': 'Hello World'})
+@app.route('/')
+def hello():
+	return "Hello World!"
+
 if __name__ == '__main__':
-    app.run(debug=False)
+	app.run(host='0.0.0.0', port=8090)

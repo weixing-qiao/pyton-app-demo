@@ -12,6 +12,11 @@ pipeline {
                 echo 'Testing..'
             }
         }
+        stage('Package') {
+            steps {
+                docker build -f Dockerfile -t app-demo:latest .
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
